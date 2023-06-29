@@ -26,7 +26,7 @@ class App extends React.Component {
       {
         id: 3,
         title: 'Black leather ottoman',
-        img: 'Black oak table.jpeg',
+        img: 'Black leather ottoman.jpeg',
         desc: 'Designer pouffe made of beautiful and environmentally friendly materials. Upholstery - more than three hundred types of upholstery to choose from.',
         category: 'couches',
         price: '89.99'
