@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { BiCartDownload } from "react-icons/bi";
+
 
 export default function Header() {
+  let [cartOpen, setCartOpen] = useState(false)
+
   return (
     <header className='header'>
       <div>
@@ -10,6 +14,7 @@ export default function Header() {
           <li>Contacts</li>
           <li>Cabinet</li>
         </ul>
+        <BiCartDownload onClick={() => setCartOpen(cartOpen = !cartOpen)} className='shop-cart-button' />
       </div>
       <div className='presentation'></div>
     </header>
