@@ -4,7 +4,8 @@ import Footer from "./components/Footer";
 import Items from "./components/Items";
 import Categories from "./components/Categories";
 import ShowFullItem from "./components/ShowFullItem";
-import Cards from "./components/Cards";
+import CardsArmchair from "./components/CardsArmchair";
+import CardsSofaBlack from "./components/CardsSofaBlack";
 
 class App extends React.Component {
   constructor(props) {
@@ -83,7 +84,8 @@ class App extends React.Component {
         <Categories chooseCategory={this.chooseCategory} />
         <Items onShowItem={this.onShowItem} items={this.state.currentItems} onAdd={this.addToOrder} />
         {this.state.showFullItem && <ShowFullItem onShowItem={this.onShowItem} onAdd={this.addToOrder} item={this.state.fullItem} />}
-        <Cards />
+        <CardsArmchair />
+        <CardsSofaBlack />
         <Footer />
       </div>
     );
