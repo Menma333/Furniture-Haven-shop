@@ -4,8 +4,7 @@ import Footer from "./components/Footer";
 import Items from "./components/Items";
 import Categories from "./components/Categories";
 import ShowFullItem from "./components/ShowFullItem";
-import CardsArmchair from "./components/CardsArmchair";
-import CardsSofaBlack from "./components/CardsSofaBlack";
+import Banner from "./components/Banner";
 
 class App extends React.Component {
   constructor(props) {
@@ -63,6 +62,18 @@ class App extends React.Component {
           price: '5000.00'
         }
       ],
+      images: [
+        { src: "./img/white-armchair-r.jpeg" },
+        { src: "./img/white-armchair.jpeg" },
+        { src: "./img/white-armchair-b.jpeg" },
+        { src: "./img/Black-Velvet-Sofa.jpg" },
+        { src: "./img/Black-Velvet-Sofa-b.jpg" },
+        { src: "./img/Black-Velvet-Sofa-x.jpg" },
+        { src: "./img/woodtable.jpg" },
+        { src: "./img/woodtable-app.jpg" },
+        { src: "./img/woodtable-at.jpg" }
+      ],
+
       showFullItem: false,
       fullItem: {}
     }
@@ -84,8 +95,27 @@ class App extends React.Component {
         <Categories chooseCategory={this.chooseCategory} />
         <Items onShowItem={this.onShowItem} items={this.state.currentItems} onAdd={this.addToOrder} />
         {this.state.showFullItem && <ShowFullItem onShowItem={this.onShowItem} onAdd={this.addToOrder} item={this.state.fullItem} />}
-        <CardsArmchair />
-        <CardsSofaBlack />
+        <Banner
+          title="White Leather Armchair"
+          header="COMING SOON"
+          link="#!"
+          subtitle="Coming Soon"
+          img={["./img/white-armchair-r.jpeg", "./img/white-armchair.jpeg", "./img/white-armchair-b.jpeg"]}
+        />
+        <Banner
+          title="Black Sofa"
+          header=""
+          link="#!"
+          subtitle="Coming Soon"
+          img={["./img/Black-Velvet-Sofa.jpg", "./img/Black-Velvet-Sofa-b.jpg", "./img/Black-Velvet-Sofa-x.jpg"]}
+        />
+        <Banner
+          title="Wood Table"
+          header=""
+          link="#!"
+          subtitle="Coming Soon"
+          img={["./img/woodtable.jpg", "./img/woodtable-app.jpg", "./img/woodtable-at.jpg"]}
+        />
         <Footer />
       </div>
     );
@@ -108,14 +138,11 @@ class App extends React.Component {
   }
 
   addToOrder(item) {
-    let isInArray = false
-    this.state.orders.forEach(el => {
-      if (el.id === item.id)
-        isInArray = true
-    })
-    if (!isInArray)
+    const exist = this.state.orders.find((el) => el.id === item.id);
 
+    if (!exist) {
       this.setState({ orders: [...this.state.orders, item] })
+    }
   }
 }
 
